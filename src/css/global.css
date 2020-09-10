@@ -1,0 +1,79 @@
+:root {
+  --black-color: 0%, 0%, 0%;
+  --gray20-color: 0%, 0%, 20%;
+  --gray40-color: 0%, 0%, 40%;
+  --gray60-color: 0%, 0%, 60%;
+  --gray80-color: 0%, 0%, 80%;
+  --white-color: 0%, 0%, 100%;
+
+  --black:  hsl(var(--white-color));
+  --gray20: hsl(var(--gray20-color));
+  --gray40: hsl(var(--gray40-color));
+  --gray60: hsl(var(--gray60-color));
+  --gray80: hsl(var(--gray80-color));
+  --white:  hsl(var(--black-color));
+}
+
+:root, .theme1 {
+  --primary-color: 242, 4, 24;
+  --secndry-color: 242, 55, 71;
+  --quatrny-color: 242, 53, 87;
+  --trtiary-color: 0, 2, 38;
+  --quintry-color: 242, 242, 242;
+}
+
+.theme2 {
+  --trtiary-color: 63, 61, 35;
+  --primary-color: 140, 136, 81;
+  --secndry-color: 114, 107, 69;
+  --quatrny-color: 191, 188, 174;
+  --quintry-color: 216, 214, 203;
+}
+
+.theme3 {
+  --primary-color: 107, 134, 140;
+  --quintry-color: 0, 34, 38;
+  --secndry-color: 29, 63, 63;
+  --trtiary-color: 242, 162, 92;
+  --quatrny-color: 216, 178, 145;
+}
+
+.theme4 {
+  --primary-color: 37, 114, 2;
+  --secndry-color: 150, 191, 3;
+  --trtiary-color: 242, 182, 4;
+  --quatrny-color: 242, 209, 147;
+  --quintry-color: 242, 48, 4;
+}
+
+:root, .theme5 {
+  --trtiary-color: 1, 16, 63;
+  --quatrny-color: 1, 28, 63;
+  --quintry-color: 1, 46, 63;
+  --secndry-color: 242, 200, 75;
+  --primary-color: 242, 160, 60;
+  }
+
+:root, .default {
+  --primary: rgb(var(--primary-color));
+  --primary-var: rgb(var(--secndry-color));
+  --secondary: rgb(var(--trtiary-color));
+  --secondary-var1: rgb(var(--quatrny-color));
+  --secondary-var2: rgb(var(--quintry-color));
+}
+
+* {
+  font-family: Work Sans;
+}
+
+.heroTitle {
+  font-size: 90px;
+}
+
+.sectionTitle {
+  font-size: 46px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
