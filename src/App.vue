@@ -36,7 +36,14 @@
       </span>
     </template>
     </Citation>
-    <SkillsTable id=skillztable />
+    <SkillsTable
+      id=skillztable
+      v-model=selectedSkills
+      />
+    <Webster
+      v-model=selectedAxis
+      />
+    <Blobby />
     </v-main>
   </v-app>
   </div>
@@ -52,15 +59,38 @@ import TheSidebar from './components/TheSidebar.vue'
 import Publications from './components/Publications.vue'
 import SkillsTable from './components/SkillsTable.vue'
 import CallToAction from './components/CallToAction.vue'
+import Webster from './components/Webster.vue'
+import Blobby from './components/Blobby.vue'
 
 // import DevHelper from './components/DevHelper.vue'
 
 export default {
   name: 'app',
   components: {TitleCard, Jobs, Education, Activities, Citation, TheSidebar,
-    Publications, SkillsTable, CallToAction,
+    Publications, SkillsTable, CallToAction, Webster, Blobby
     //DevHelper
   },
+  data: function() {
+    return {
+      selectedSkills: [],
+      selectedAxis: [[], []],
+    }
+  },
+  watch: {
+    selectedSkills: {
+      deep: true,
+      immediate: true,
+      handler(newValues) {
+        const convertedValues = []
+        const randomValues = []
+        for (var value of newValues) {
+          convertedValues.push({axis: value.skill, value: value.level, player: 'J'})
+          randomValues.push({axis: value.skill, value: value.required, player: 'O'})
+        }
+        this.selectedAxis = [convertedValues, randomValues]
+      }
+    }
+  }
 }
 </script>
 
