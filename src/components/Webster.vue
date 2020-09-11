@@ -6,8 +6,8 @@
       </v-col>
       <v-col>
         <div class="matcher" >
-          <div class=matchValue> {{ matchValue }}%</div>
-          <div class=matchText> {{ match }} </div>
+          <div class=matchValue v-html=matchRender></div>
+          <div class=matchText> {{ matchText }} </div>
         </div>
       </v-col>
     </v-row>
@@ -22,7 +22,8 @@ import {RadarChart} from './radar_chart.js'
 
 export default {
   props: {
-    value: {type: Array, default: () => [[], []]}
+    value: {type: Array, default: () => [[], []]},
+    cap: {type: Boolean, default: false}
   },
   data: function() {
     return {
@@ -34,21 +35,48 @@ export default {
       const player1 = this.value[0]
       const player2 = this.value[1]
 
-      let matchValue = 0
+      const N = player1.length
+
+      if (N === 0) {
+        return ['?', '?']
+      }
+
+      let matchValues = []
       let diff
+      let val
       for (var i = 0; i < player1.length; i++) {
         diff = player2[i].value - player1[i].value
-        // diff = diff >= 0 ? 1 + diff : abs(diff)
-        matchValue += 1 - diff
-      }
-      matchValue /= player1.length
 
-      return Math.round(matchValue * 100)
+        val = 1 - diff
+        val = this.cap && diff < 0 ? 1 : val
+        matchValues.push( val )
+      }
+      console.log(matchValues)
+
+      const matchValue = matchValues.reduce((a, b) => a + b) / N
+      const matchVariance = matchValues.reduce(
+        (a, b) => a + Math.pow((b - matchValue), 2)
+      ) / N
+
+      const returnValue = Math.round(matchValue * 1000) / 10
+      const returnVariance = Math.round(matchVariance * 1000) / 10
+
+      return [returnValue, returnVariance]
     },
-    match: function() {
+    matchRender: function() {
+      const [m, v] = this.matchValue
+      if (m === '?'){
+        return '?%'
+      } else {
+        return `${m}%` + ' &#177 ' + `${v}%`
+      }
+    },
+    matchText: function() {
       let matchText
       if (this.matchValue >= 90) {
         matchText = 'Its a match! I would love to hear from you!'
+      } else if (this.matchValue[0] === '?') {
+        matchText = "Choose some of my skills and set your requirements!"
       } else {
         matchText = "Seems I can learn a lot at your company! Let's talk trainings!"
       }
@@ -92,12 +120,9 @@ export default {
       immediate: true,
       deep: true,
       handler() {
-        if ( this.value ) {
-            console.log(this.value)
-            if (this.value && this.value.length > 0) {
-                RadarChart(".radarChart", this.value, this.radarChartOptions);
-            }
-        }
+        if (this.value) {
+            RadarChart(".radarChart", this.value, this.radarChartOptions);
+        } 
         this.$emit('input', this.value)
       }
     }

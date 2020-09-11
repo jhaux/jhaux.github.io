@@ -42,6 +42,7 @@
       />
     <Webster
       v-model=selectedAxis
+      cap
       />
     <Blobby />
     </v-main>

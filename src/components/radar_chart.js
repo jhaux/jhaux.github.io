@@ -37,6 +37,9 @@ export function RadarChart(id, data, options) {
  //If the supplied maxValue is smaller than the actual one, replace by the max in the data
  var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){
    return d3.max(i.map(function(o){return o.value;}))}));
+  if (Number.isNaN(maxValue)) {
+    maxValue = cfg.maxValue
+  }
   
  // var allAxis = (data[0].map(function(i, j){return i.axis})), //Names of each axis
  var allAxis = (data[0].map(function(i){return i.axis})), //Names of each axis
@@ -113,11 +116,15 @@ export function RadarChart(id, data, options) {
     .style("font-size", "10px")
     .attr("fill", "#737373")
     // .text(function(d,i) { return Format(maxValue * d/cfg.levels); });
-    .text(function(d) { return Format(maxValue * d/cfg.levels); });
+    .text(function(d) { var val = Format(maxValue * d/cfg.levels); return val});
 
  /////////////////////////////////////////////////////////
  //////////////////// Draw the axes //////////////////////
  /////////////////////////////////////////////////////////
+  
+  if (data[0].length === 0) {
+    return
+  }
  
  //Create the straight lines radiating outward from the center
  var axis = axisGrid.selectAll(".axis")
@@ -164,7 +171,7 @@ export function RadarChart(id, data, options) {
  var blobWrapper = g.selectAll(".radarWrapper")
   .data(data)
   .enter().append("g")
-  .attr("class", (d) => {console.log(d); return "radarWrapper " + d[0].player});
+  .attr("class", (d) => {return "radarWrapper " + d[0].player});
    
  //Append the backgrounds 
  blobWrapper

@@ -78,7 +78,7 @@ export default {
         { class: 'sticky-header', text: "Required", value: "required", groupable: false, align: "center"},
         ],
       items: [ 
-      {skill: "Python",                 level: 5, required: 3, experience: new Date(2013, 1), category: 'Programming Languages', catIndex: 0, subCatIndex: 0},
+      {skill: "Python",                 selected: true, level: 5, required: 3, experience: new Date(2013, 1), category: 'Programming Languages', catIndex: 0, subCatIndex: 0},
       {skill: "Python 2.7",             level: 4, required: 3, experience: new Date(2013, 1), category: 'Programming Languages', catIndex: 0, subCatIndex: 0},
       {skill: "Python 3.5-3.8",         level: 5, required: 3, experience: new Date(2015, 7), category: 'Programming Languages', catIndex: 0, subCatIndex: 0},
       {skill: "c++ 11, 17",             level: 2, required: 3, experience: new Date(2016, 1), category: 'Programming Languages', catIndex: 0, subCatIndex: 0},
@@ -88,44 +88,51 @@ export default {
       {skill: "latex",                  level: 4, required: 3, experience: new Date(2013, 1), category: 'Programming Languages', catIndex: 0, subCatIndex: 0},
 
 
-      {skill: "tensorflow < 2.0"             , level: 4, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "tensorflow > 2.0"             , level: 3, required: 3, experience: new Date(2019, 6), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "pytorch"                      , level: 5, required: 3, experience: new Date(2018, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "Matplotlib"                   , level: 5, required: 3, experience: new Date(2013, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "multiprocessing"              , level: 4, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "scipy"                        , level: 4, required: 3, experience: new Date(2013, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "numpy"                        , level: 5, required: 3, experience: new Date(2013, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "pytest"                       , level: 4, required: 3, experience: new Date(2019, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "sqlalchemy"                   , level: 2, required: 3, experience: new Date(2020, 6), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
-      {skill: "fastapi"                      , level: 2, required: 3, experience: new Date(2020, 6), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "tensorflow < 2.0"    , selected: false, level: 4, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "tensorflow > 2.0"    , selected: false, level: 3, required: 3, experience: new Date(2019, 6), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "pytorch"             , selected: true,  level: 5, required: 3, experience: new Date(2018, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "Matplotlib"          , selected: true,  level: 5, required: 3, experience: new Date(2013, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "multiprocessing"     , selected: false, level: 4, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "scipy"               , selected: false, level: 4, required: 3, experience: new Date(2013, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "numpy"               , selected: false, level: 5, required: 3, experience: new Date(2013, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "pytest"              , selected: false, level: 4, required: 3, experience: new Date(2019, 1), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "sqlalchemy"          , selected: false, level: 2, required: 3, experience: new Date(2020, 6), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
+      {skill: "fastapi"             , selected: false, level: 2, required: 3, experience: new Date(2020, 6), category: "Frameworks and Libraries", subcategory: "python", catIndex: 1, subCatIndex: 0},
 
-      {skill: "Vue.js"                       , level: 3, required: 3, experience: new Date(2020, 3), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
-      {skill: "d3.js"                        , level: 2, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
-      {skill: "reveal.js"                    , level: 2, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
-      {skill: "three.js"                     , level: 1, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
+      {skill: "Vue.js"              , selected: true,  level: 3, required: 3, experience: new Date(2020, 3), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
+      {skill: "d3.js"               , selected: false, level: 2, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
+      {skill: "reveal.js"           , selected: false, level: 2, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
+      {skill: "three.js"            , selected: false, level: 1, required: 3, experience: new Date(2017, 1), category: "Frameworks and Libraries", subcategory: "web", catIndex: 1, subCatIndex: 1},
 
-      {skill: "anaconda / miniconda"         , level: 4, required: 3, experience: new Date(2018, 1), category: "Frameworks and Libraries", subcategory: "container", catIndex: 1, subCatIndex: 2},
-      {skill: "docker"                       , level: 1, required: 3, experience: new Date(2018, 1), category: "Frameworks and Libraries", subcategory: "container", catIndex: 1, subCatIndex: 2},
+      {skill: "anaconda / miniconda", selected: false, level: 4, required: 3, experience: new Date(2018, 1), category: "Frameworks and Libraries", subcategory: "container", catIndex: 1, subCatIndex: 2},
+      {skill: "docker"              , selected: false, level: 1, required: 3, experience: new Date(2018, 1), category: "Frameworks and Libraries", subcategory: "container", catIndex: 1, subCatIndex: 2},
 
 
-      {skill: "vim"                   , level: 4, required: 3, experience: new Date(2015, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "tmux"                  , level: 4, required: 3, experience: new Date(2016, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "git"                   , level: 4, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "github"                , level: 4, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "bitbucket"             , level: 3, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "travis"                , level: 3, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "inkscape"              , level: 4, required: 3, experience: new Date(2008, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "blender"               , level: 2, required: 3, experience: new Date(2008, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "gimp"                  , level: 3, required: 3, experience: new Date(2008, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "Unity3D"               , level: 3, required: 3, experience: new Date(2017, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "google suite"          , level: 4, required: 3, experience: new Date(2017, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
-      {skill: "microsoft office suite", level: 2, required: 3, experience: new Date(2004, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "vim"                   , selecetd: true, level: 4, required: 3, experience: new Date(2015, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "tmux"                  , selected: false, level: 4, required: 3, experience: new Date(2016, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "git"                   , selected: true, level: 4, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "github"                , selected: false, level: 4, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "bitbucket"             , selected: false, level: 3, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "travis"                , selected: false, level: 3, required: 3, experience: new Date(2013, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "inkscape"              , selected: false, level: 4, required: 3, experience: new Date(2008, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "blender"               , selected: false, level: 2, required: 3, experience: new Date(2008, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "gimp"                  , selected: false, level: 3, required: 3, experience: new Date(2008, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "Unity3D"               , selected: false, level: 3, required: 3, experience: new Date(2017, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "google suite"          , selected: false, level: 4, required: 3, experience: new Date(2017, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
+      {skill: "microsoft office suite", selected: false, level: 2, required: 3, experience: new Date(2004, 1), category: "Tools", catIndex: 2, subCatIndex: 0},
 
 
       {skill: "Linux - Ubuntu"       , level: 4, required: 3, experience: new Date(2015, 1), category: "Operating Systems", catIndex: 3, subCatIndex:0},
       {skill: "Windows XP/Vista/7/10", level: 3, required: 3, experience: new Date(2004, 1), category: "Operating Systems", catIndex: 3, subCatIndex:0},
       {skill: "Mac OS"               , level: 3, required: 3, experience: new Date(2013, 1), category: "Operating Systems", catIndex: 3, subCatIndex:0},
       ]
+    }
+  },
+  mounted: function() {
+    for (var item of this.items) {
+      if (item.selected) {
+        this.selected.push(item)
+      }
     }
   },
   methods: {
