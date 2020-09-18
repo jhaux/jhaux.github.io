@@ -1,29 +1,32 @@
 <template>
   <v-container>
-    <v-row>
+    <v-container>
       <v-col>
-        <div class="radarChart" />
+        <div :id="name + 'radarChart'" class=radarChart />
       </v-col>
-      <v-col>
+      <v-col v-if=matches>
         <div class="matcher" >
           <div class=matchValue v-html=matchRender></div>
           <div class=matchText> {{ matchText }} </div>
         </div>
       </v-col>
-    </v-row>
+    </v-container>
   </v-container>
 </template>
 
 <script>
-// import * as d3 from 'd3'
-const d3 = Object.assign({}, require("d3"), require("d3-scale"));
+import * as d3 from 'd3'
 
 import {RadarChart} from './radar_chart.js'
+import Colors from '@/mixins/Colors.js'
 
 export default {
+  mixins: [Colors],
   props: {
     value: {type: Array, default: () => [[], []]},
-    cap: {type: Boolean, default: false}
+    cap: {type: Boolean, default: false},
+    name: {type: String, required: true},
+    matches: {type: Boolean}
   },
   data: function() {
     return {
@@ -90,20 +93,22 @@ export default {
    //////////////////////// Set-Up //////////////////////////////
    //////////////////////////////////////////////////////////////
 
+   const elementObj = document.querySelector('#' + this.name + 'radarChart')
+
+   console.log('r wh', elementObj.offsetWidth, elementObj.offsetHeight)
+   const baseWidth = Math.max(700, elementObj.offsetWidth)
+   const baseHeigth = Math.max(700, elementObj.offsetHeight)
+
    var margin = {top: 100, right: 100, bottom: 100, left: 100},
-    width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
-    height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+   width = baseWidth - margin.left - margin.right,
+   height = baseHeigth- margin.top - margin.bottom
 
    //////////////////////////////////////////////////////////////
    //////////////////// Draw the Chart //////////////////////////
    //////////////////////////////////////////////////////////////
 
-   const style = getComputedStyle(document.body)
-   const color1 = style.getPropertyValue('--primary')
-   const color2 = style.getPropertyValue('--secondary')
-
    var color = d3.scaleOrdinal()
-    .range([color1,color2]);
+    .range(this.matches ? [this.primary, this.secondary] : [this.primary]);
 
    this.radarChartOptions = {
      w: width,
@@ -112,16 +117,18 @@ export default {
      maxValue: 6,
      levels: 6,
      roundStrokes: true,
-     color: color
+     color: color,
    };
   },
   watch: {
     value: {
-      immediate: true,
+      // immediate: true,
       deep: true,
       handler() {
         if (this.value) {
-            RadarChart(".radarChart", this.value, this.radarChartOptions);
+            const value = this.matches ? this.value : [ this.value[0] ]
+            console.log(this.name, this.value)
+            RadarChart("#" + this.name + "radarChart", value, this.radarChartOptions);
         } 
         this.$emit('input', this.value)
       }

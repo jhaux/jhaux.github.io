@@ -2,6 +2,7 @@
   <v-navigation-drawer
     app
     :mini-variant=collapsed
+    :src=bgIm
     >
     <v-list
       dense
@@ -55,13 +56,22 @@ export default {
         {name: "Activities", link: "#activites", icon: "mdi-nature-people"},
         {name: "Skills", link: "#skillztable", icon: "mdi-head-lightbulb"},
       ],
-      collapsed_: true
+      collapsed_: true,
+      scrollPos: 0
     }
   },
   computed: {
     collapsed: function () {
       return this.collapsed_
+    },
+    bgIm: function() {
+      return this.scrollPos > (window.innerHeight * 0.75) ? "/slovakia.jpg" : undefined
     }
+  },
+  mounted: function() {
+    window.addEventListener('scroll', function() {
+      this.scrollPos = window.scrollY
+    })
   }
 }
 </script>

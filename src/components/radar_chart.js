@@ -30,7 +30,7 @@ export function RadarChart(id, data, options) {
  //Put all of the options into a variable called cfg
  if('undefined' !== typeof options){
    for(var i in options){
-  if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
+    if('undefined' !== typeof options[i]){ cfg[i] = options[i]; }
    }//for i
  }//if
  
@@ -159,9 +159,9 @@ export function RadarChart(id, data, options) {
  
  //The radial line function
  var radarLine = d3.lineRadial()
-  // .interpolate("linear-closed")
   .radius(function(d) { return rScale(d.value); })
-  .angle(function(d,i) { return i*angleSlice; });
+  .angle(function(d,i) { return i*angleSlice; })
+  .curve(d3.curveCatmullRomClosed)
   
  // if(cfg.roundStrokes) {
  //  radarLine.interpolate("cardinal-closed");
@@ -182,7 +182,6 @@ export function RadarChart(id, data, options) {
   .style("fill", function(d,i) { return cfg.color(i); })
   // .style("fill", function(d) { return cfg.color(d.player); })
   .style("fill-opacity", cfg.opacityArea)
-  //.on('mouseover', function (d,i){
   .on('mouseover', function (){
    //Dim all blobs
    d3.selectAll(".radarArea")

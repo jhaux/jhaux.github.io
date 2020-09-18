@@ -1,74 +1,89 @@
 <template>
   <div>
   <v-app app id="app">
-
-    <TheSidebar />
     <v-main app>
       <!-- <DevHelper /> -->
-    <TitleCard id=home></TitleCard>
+      <TopMatter />
+      <FirstImpressionPlots id=data1 :data=selectedAxis />
 
-    <CallToAction></CallToAction>
-    <Jobs id=work />
+      <Jobs id=work />
 
-    <Citation>
-    "Ford!" he said, "there's an infinite number of monkeys outside who want to
-    talk to us about this script for Hamlet they've worked out.”
-    <template v-slot:source>
-      <span>
-      Douglas Adams, The Hitchhiker's Guide to the Galaxy
-      </span>
-    </template>
-    </Citation>
+      <Citation>
+      "Ford!" he said, "there's an infinite number of monkeys outside who want to
+      talk to us about this script for Hamlet they've worked out.”
+      <template v-slot:source>
+        <span>
+        Douglas Adams, The Hitchhiker's Guide to the Galaxy
+        </span>
+      </template>
+      </Citation>
 
-    <Education id=education />
+      <Education id=education />
 
-    <Publications id=publication />
+      <Publications id=publication />
 
-    <Activities id=activites />
+      <Activities id=activites />
 
-    <Citation>
-        A common mistake that people make when trying to design something
-        completely foolproof is to underestimate the ingenuity of complete
-        fools.
-    <template v-slot:source>
-      <span>
-        Douglas Adams, Mostly Harmless
-      </span>
-    </template>
-    </Citation>
-    <SkillsTable
-      id=skillztable
-      v-model=selectedSkills
-      />
-    <Webster
-      v-model=selectedAxis
-      cap
-      />
-    <Blobby />
+      <Citation>
+          A common mistake that people make when trying to design something
+          completely foolproof is to underestimate the ingenuity of complete
+          fools.
+      <template v-slot:source>
+        <span>
+          Douglas Adams, Mostly Harmless
+        </span>
+      </template>
+      </Citation>
+
+      <SkillsTable
+        id=skillztable
+        v-model=selectedSkills
+        />
+
+      <Webster
+        name=bottom
+        v-model=selectedAxis
+        id='data2'
+        cap
+        matches
+        />
+
+      <Blobby name=bottom />
+
     </v-main>
   </v-app>
   </div>
 </template>
 
 <script>
-import TitleCard from './components/TitleCard.vue'
 import Jobs from './components/Jobs.vue'
 import Education from './components/Education.vue'
 import Activities from './components/Activities.vue'
 import Citation from './components/Citation.vue'
-import TheSidebar from './components/TheSidebar.vue'
+// import TheSidebar from './components/TheSidebar.vue'
 import Publications from './components/Publications.vue'
 import SkillsTable from './components/SkillsTable.vue'
-import CallToAction from './components/CallToAction.vue'
 import Webster from './components/Webster.vue'
 import Blobby from './components/Blobby.vue'
+import TopMatter from './components/TopMatter.vue'
+import FirstImpressionPlots from './components/FirstImpressionPlots.vue'
 
 // import DevHelper from './components/DevHelper.vue'
 
 export default {
   name: 'app',
-  components: {TitleCard, Jobs, Education, Activities, Citation, TheSidebar,
-    Publications, SkillsTable, CallToAction, Webster, Blobby
+  components: {
+    Jobs,
+    Education,
+    Activities,
+    Citation,
+    // TheSidebar,
+    Publications,
+    SkillsTable,
+    Webster,
+    Blobby,
+    TopMatter,
+    FirstImpressionPlots,
     //DevHelper
   },
   data: function() {

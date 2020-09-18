@@ -1,59 +1,69 @@
 <template>
   <div class=titleContainer ref="container" >
-    <div ref="T1" class=titleHeader >Johannes Haux</div>
-    <div ref="T2" class=titleSubHeader >Computer Vision | Data Science | python | javascript</div>
-    <TheImpactor :key="'title'" class=impactor ref=impactor />
+    <div ref="T1" class="titleHeader" >
+      Johannes Haux
+    </div>
+    <div ref="T2" class="titleSubHeader" >
+      Computer Vision | Data Science | python | javascript
+    </div>
   </div>
 </template>
 
 <script>
-import TheImpactor from './TheImpactor.vue'
-
 export default {
-  components: {TheImpactor},
-  mounted: function () {
-    const impactor = this.$refs.impactor.$el
-
-    window.addEventListener('scroll', function () {
-      const value = window.scrollY
-      impactor.style.top = value * 0.25 + 'px'
-    })
-  }
 }
 </script>
 
-<style scoped>
+<style>
 .titleContainer {
-  position: relative;
-  height: 100vh;
+  /* position: relative;*/
   z-index: -1;
-}
+  background-image: linear-gradient(
+        rgba(var(--secondary-color), 0.0) 0%,
+        rgba(var(--secondary-color), 0.0) 45%,
+        rgba(var(--secondary-color), 1.0) 100%
+    ), url(/slovakia.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.impactor {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: -1;
+  text-align: center;
 }
 
 .titleHeader, .titleSubHeader {
+  position: relative;
   z-index: 100;
   color: var(--primary);
+  top: 45%;
 }
 
 .titleHeader {
-  margin-top: 45%;
-  margin-left: 5%;
+  font-size: 6rem;
   font-weight: 700;
-  font-size: 8em;
-  padding: 0px 15px;
 }
 
 .titleSubHeader {
-  margin-top: 10%;
-  margin-left: 15%;
+  font-size: 1.5rem;
   font-weight: 400;
-  font-size: 2em;
-  padding: 0px 15px;
+  padding-top: 3%
 }
+
+@media (max-width: 900px) {
+  .titleHeader {
+    font-size: 64px;
+  }
+  .titleSubHeader {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .titleHeader {
+    font-size: 36px;
+  }
+  .titleSubHeader {
+    font-size: 14px;
+  }
+}
+
 </style>

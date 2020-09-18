@@ -134,6 +134,8 @@ export default {
         this.selected.push(item)
       }
     }
+
+    this.$emit('rendered')
   },
   methods: {
     getExperience: function(date) {
@@ -175,9 +177,11 @@ export default {
   color: var(--secondary-var);
 }
 
-.v-data-table /deep/ .sticky-header {
+.v-data-table /deep/ .sticky-header,
+.v-data-table /deep/ .text-start /* this is super hacky! */
+{
   position: sticky;
-  top: 0;
+  top: 64px;
 }
 
 .v-data-table /deep/ .v-data-table__wrapper {
