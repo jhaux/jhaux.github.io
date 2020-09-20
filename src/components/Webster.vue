@@ -1,17 +1,15 @@
 <template>
-  <v-container>
+  <div>
+    <div :id="name + 'radarChart'" class=radarChart />
     <v-container>
-      <v-col>
-        <div :id="name + 'radarChart'" class=radarChart />
-      </v-col>
-      <v-col v-if=matches>
-        <div class="matcher" >
-          <div class=matchValue v-html=matchRender></div>
-          <div class=matchText> {{ matchText }} </div>
-        </div>
-      </v-col>
+        <v-col v-if=matches>
+          <div class="matcher" >
+            <div class=matchValue v-html=matchRender></div>
+            <div class=matchText> {{ matchText }} </div>
+          </div>
+        </v-col>
     </v-container>
-  </v-container>
+      </div>
 </template>
 
 <script>
@@ -96,12 +94,12 @@ export default {
    const elementObj = document.querySelector('#' + this.name + 'radarChart')
 
    console.log('r wh', elementObj.offsetWidth, elementObj.offsetHeight)
-   const baseWidth = Math.max(700, elementObj.offsetWidth)
-   const baseHeigth = Math.max(700, elementObj.offsetHeight)
+   // const baseWidth = Math.min(window.innerWidth, Math.max(700, elementObj.offsetWidth))
+   // const baseHeigth = Math.min(window.innerHeight, Math.max(700, elementObj.offsetHeight))
 
-   var margin = {top: 100, right: 100, bottom: 100, left: 100},
-   width = baseWidth - margin.left - margin.right,
-   height = baseHeigth- margin.top - margin.bottom
+   var margin = {top: 100, right: 100, bottom: 100, left: 100}
+   // width = baseWidth - margin.left - margin.right,
+   // height = baseHeigth- margin.top - margin.bottom
 
    //////////////////////////////////////////////////////////////
    //////////////////// Draw the Chart //////////////////////////
@@ -111,8 +109,8 @@ export default {
     .range(this.matches ? [this.primary, this.secondary] : [this.primary]);
 
    this.radarChartOptions = {
-     w: width,
-     h: height,
+     // w: width,
+     // h: height,
      margin: margin,
      maxValue: 6,
      levels: 6,

@@ -1,22 +1,22 @@
 import * as d3 from 'd3'
 
 
-export function MultiDensityChart(csvPath, element) {
+export function MultiDensityChart(csvPath, element, cstmWidth=null, cstmHeight=null) {
 
-    const elementObj = document.querySelector(element)
-    const baseWidth = Math.min(window.innerWidth, Math.max(700, elementObj.offsetWidth))
-    const baseHeigth = Math.min(window.innerHeight, Math.max(400, elementObj.offsetHeight))
+    const baseWidth = cstmWidth || 700
+    const baseHeight = cstmHeight || 400
 
     var margin = { top: 30, right: 10, bottom: 30, left: 100 },
         width = baseWidth - margin.left - margin.right,
-        height = baseHeigth - margin.top - margin.bottom
+        height = baseHeight - margin.top - margin.bottom
     
     // Percent two area charts can overlap
     var overlap = 0.5
     
     var svg = d3.select(element).append('svg')
-            .attr('width', baseWidth)
-            .attr('height', baseHeigth)
+            //.attr('width', baseWidth)
+            //.attr('height', baseHeigth)
+            .attr('viewBox', `0 0 ${baseWidth} ${baseHeight}`)
         .append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 

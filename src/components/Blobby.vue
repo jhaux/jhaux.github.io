@@ -1,4 +1,4 @@
-<template>
+und<template>
   <v-container class=multiChartContainer>
     <v-toolbar>
       <v-toolbar-title>
@@ -21,13 +21,9 @@
       </v-btn>
     </v-overlay>
 
-    <v-row>
-      <v-col>
     <div :id="name + 'multiChart'"> </div>
-      </v-col>
-      <v-col>
+    <v-row>
         Content
-      </v-col>
     </v-row>
   </v-container>
 </template>
@@ -38,6 +34,8 @@ import { MultiDensityChart } from './mutli_density_chart.js'
 export default {
   props: {
     name: {type: String, required: true},
+    width: {type: Number, default: null},
+    height: {type: Number, default: null}
   },
   data: function() {
     return {
@@ -45,7 +43,7 @@ export default {
     }
   },
   mounted: function () {
-    MultiDensityChart('timestamp_av.csv', '#' + this.name + 'multiChart')
+    MultiDensityChart('timestamp_av.csv', '#' + this.name + 'multiChart', this.width, this.height)
   },
   methods: {
     onHelpClick: function () {

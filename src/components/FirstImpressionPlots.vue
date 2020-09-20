@@ -16,6 +16,8 @@
       <Blobby
           name=top
           class=impressionContent
+          width=700
+          height=700
       />
     </div>
 </template>

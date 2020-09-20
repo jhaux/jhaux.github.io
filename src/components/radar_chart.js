@@ -62,10 +62,15 @@ export function RadarChart(id, data, options) {
  d3.select(id).select("svg").remove();
  
  //Initiate the radar chart SVG
+ const w = cfg.w + cfg.margin.left + cfg.margin.right
+ const h = cfg.h + cfg.margin.top + cfg.margin.bottom
+
  var svg = d3.select(id).append("svg")
-   .attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
-   .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
-   .attr("class", "radar"+id);
+   // .attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
+   // .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
+   .attr("class", "radar"+id)
+   .attr("viewBox", `0 0 ${w}, ${h}`)
+
  //Append a g element  
  var g = svg.append("g")
    .attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
