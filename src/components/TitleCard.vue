@@ -22,7 +22,7 @@ export default {
         rgba(var(--secondary-color), 0.0) 0%,
         rgba(var(--secondary-color), 0.0) 45%,
         rgba(var(--secondary-color), 1.0) 100%
-    ), url(/slovakia.jpg);
+    ), url(https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/slovakia.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
