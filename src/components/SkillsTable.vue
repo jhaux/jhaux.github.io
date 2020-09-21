@@ -187,4 +187,12 @@ export default {
 .v-data-table /deep/ .v-data-table__wrapper {
   overflow: unset;
 }
+
+@media (max-width: 599px) {
+.v-data-table /deep/ .text-start /* this is super hacky! */
+    {
+      position: unset;
+    }
+}
+
 </style>
