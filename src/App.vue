@@ -41,20 +41,15 @@
         />
 
       <div class=interactivePlots>
-      <Webster
-        name=bottom
+      <Matcher
         v-model=selectedAxis
         id='data2'
         cap
         matches
-        />
-
-      <Blobby
-        name=bottom
-        id=blob
       />
       </div>
 
+      <Impressum />
     </v-main>
   </v-app>
   </div>
@@ -65,15 +60,12 @@ import Jobs from './components/Jobs.vue'
 import Education from './components/Education.vue'
 import Activities from './components/Activities.vue'
 import Citation from './components/Citation.vue'
-// import TheSidebar from './components/TheSidebar.vue'
 import Publications from './components/Publications.vue'
 import SkillsTable from './components/SkillsTable.vue'
-import Webster from './components/Webster.vue'
-import Blobby from './components/Blobby.vue'
+import Matcher from './components/Matcher.vue'
 import TopMatter from './components/TopMatter.vue'
 import FirstImpressionPlots from './components/FirstImpressionPlots.vue'
-
-// import DevHelper from './components/DevHelper.vue'
+import Impressum from './components/Impressum.vue'
 
 export default {
   name: 'app',
@@ -82,14 +74,12 @@ export default {
     Education,
     Activities,
     Citation,
-    // TheSidebar,
     Publications,
     SkillsTable,
-    Webster,
-    Blobby,
+    Matcher,
     TopMatter,
     FirstImpressionPlots,
-    //DevHelper
+    Impressum,
   },
   data: function() {
     return {
@@ -122,7 +112,7 @@ export default {
 
 .interactivePlots {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   grid-template-areas:
     "web blob";
@@ -131,7 +121,7 @@ export default {
 @media (max-width: 900px) {
   .interactivePlots {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr qfr;
+    grid-template-rows: 1fr;
     grid-template-areas:
         "web"
         "blob";

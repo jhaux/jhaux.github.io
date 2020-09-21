@@ -67,6 +67,7 @@
 
 * {
   font-family: Work Sans;
+  word-break: break-word;
 }
 
 .heroTitle {
@@ -96,3 +97,8 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid slategrey;
 }
 
+@media (max-width: 900px) {
+  .sectionTitle {
+    font-size: 24px;
+  }
+}

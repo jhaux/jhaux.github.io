@@ -11,6 +11,7 @@
           text
           :color=bgColor
           class=CTAIcon
+          :class=importanceClass(item.importance)
           >
           <v-icon class=CTAIcon>
             {{ item.icon }}
@@ -33,15 +34,14 @@ export default {
   data: function () {
     return {
       navItems: [
-        {name: "Home", link: "#home", icon: "mdi-home"},
-        {name: "Data", link: "#data1", icon: "mdi-chart-scatter-plot"},
-        {name: "Work Experience", link: "#work", icon: "mdi-briefcase"},
-        {name: "Education", link: "#education", icon: "mdi-school"},
-        {name: "Publications", link: "#publication", icon: "mdi-file-document"},
-        {name: "Activities", link: "#activites", icon: "mdi-nature-people"},
-        {name: "Skills", link: "#skillztable", icon: "mdi-head-lightbulb"},
-        {name: "Data", link: "#data2", icon:
-          "mdi-chart-timeline-variant"},
+        {name: "Home",            link: "#home",        importance: 1, icon: "mdi-home"},
+        {name: "Data",            link: "#data1",       importance: 1, icon: "mdi-chart-scatter-plot"},
+        {name: "Work Experience", link: "#work",        importance: 0, icon: "mdi-briefcase"},
+        {name: "Education",       link: "#education",   importance: 0, icon: "mdi-school"},
+        {name: "Publications",    link: "#publication", importance: 1, icon: "mdi-file-document"},
+        {name: "Activities",      link: "#activites",   importance: 0, icon: "mdi-nature-people"},
+        {name: "Skills",          link: "#skillztable", importance: 1, icon: "mdi-head-lightbulb"},
+        {name: "Data",            link: "#data2",       importance: 0, icon: "mdi-chart-timeline-variant"},
       ],
       collapsed_: true,
       scrollPos: 0
@@ -60,6 +60,11 @@ export default {
       return color2
     }
   },
+  methods: {
+    importanceClass: function (importance) {
+      return importance > 0 ? null : 'unimportantButton'
+    }
+  },
   mounted: function() {
     window.addEventListener('scroll', function() {
       this.scrollPos = window.scrollY
@@ -73,8 +78,14 @@ export default {
   margin: 2px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .btnName {
+    display: none;
+  }
+}
+
+@media (max-width: 530px) {
+  .unimportantButton {
     display: none;
   }
 }

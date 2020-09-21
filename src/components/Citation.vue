@@ -47,4 +47,14 @@ export default {
   font-style: italic;
   max-width: 60%;
 }
+
+@media (max-width: 900px) {
+    .citation {
+      font-size: 16px;
+    }
+    
+    .source {
+      font-size: 9px;
+    }
+}
 </style>

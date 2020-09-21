@@ -15,7 +15,7 @@
           mdi-pdf-box
         </v-icon>
         <span class=CTAIcon>
-          CV as pdf | You have better things to do!
+          CV as pdf
         </span>
       </v-btn>
     </div>
@@ -64,6 +64,7 @@ export default {
 
 <style scoped>
 .CTAContainer {
+  width: 100%;
   padding: 3%;
   background-color: var(--secondary);
   color: var(--primary);

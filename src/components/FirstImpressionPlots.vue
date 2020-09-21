@@ -147,17 +147,18 @@ export default {
 }
 
 .webster {
-  grid-area: 'web';
+  grid-area: web;
 }
 
 .blobby {
-  grid-area: 'blob';
+  grid-area: blob;
 }
 
 .firstLookContainer {
+  max-height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 80% minmax(auto 20%);
   grid-template-areas:
    "web blob"
    "wtext btext";
@@ -172,6 +173,7 @@ export default {
 
 @media (max-width: 1200px) {
   .firstLookContainer {
+  max-height: 180vh;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto 1fr auto;
   grid-template-areas:

@@ -1,14 +1,6 @@
 <template>
   <div>
     <div :id="name + 'radarChart'" class=radarChart />
-    <v-container>
-        <v-col v-if=matches>
-          <div class="matcher" >
-            <div class=matchValue v-html=matchRender></div>
-            <div class=matchText> {{ matchText }} </div>
-          </div>
-        </v-col>
-    </v-container>
       </div>
 </template>
 
@@ -29,59 +21,6 @@ export default {
   data: function() {
     return {
       radarChartOptions: {}
-    }
-  },
-  computed: {
-    matchValue: function() {
-      const player1 = this.value[0]
-      const player2 = this.value[1]
-
-      const N = player1.length
-
-      if (N === 0) {
-        return ['?', '?']
-      }
-
-      let matchValues = []
-      let diff
-      let val
-      for (var i = 0; i < player1.length; i++) {
-        diff = player2[i].value - player1[i].value
-
-        val = 1 - diff
-        val = this.cap && diff < 0 ? 1 : val
-        matchValues.push( val )
-      }
-      console.log(matchValues)
-
-      const matchValue = matchValues.reduce((a, b) => a + b) / N
-      const matchVariance = matchValues.reduce(
-        (a, b) => a + Math.pow((b - matchValue), 2)
-      ) / N
-
-      const returnValue = Math.round(matchValue * 1000) / 10
-      const returnVariance = Math.round(matchVariance * 1000) / 10
-
-      return [returnValue, returnVariance]
-    },
-    matchRender: function() {
-      const [m, v] = this.matchValue
-      if (m === '?'){
-        return '?%'
-      } else {
-        return `${m}%` + ' &#177 ' + `${v}%`
-      }
-    },
-    matchText: function() {
-      let matchText
-      if (this.matchValue >= 90) {
-        matchText = 'Its a match! I would love to hear from you!'
-      } else if (this.matchValue[0] === '?') {
-        matchText = "Choose some of my skills and set your requirements!"
-      } else {
-        matchText = "Seems I can learn a lot at your company! Let's talk trainings!"
-      }
-      return matchText
     }
   },
   mounted: function() {
@@ -144,14 +83,13 @@ export default {
   font-size: 14px !important;
 }
 
-.matcher {
-  display: grid;
+.radarChart {
+  height: 80%;
 }
 
-.matchValue {
-  font-size: 72px;
-  font-weight: 600;
-
+.radarChart > svg {
+  max-height: 100%;
+  width: auto;
 }
 
 </style>

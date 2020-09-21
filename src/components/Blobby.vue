@@ -1,7 +1,5 @@
 und<template>
-  <v-container class=multiChartContainer>
-    <div :id="name + 'multiChart'"> </div>
-  </v-container>
+    <div class=multiChart :id="name + 'multiChart'"> </div>
 </template>
 
 <script>
@@ -52,5 +50,14 @@ export default {
 
 .axis {
   font-size: 14px;
+}
+
+.multiChart {
+  height: 80%;
+}
+
+.multiChart > svg {
+  max-height: 100%;
+  width: auto;
 }
 </style>
