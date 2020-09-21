@@ -99,15 +99,12 @@ export default {
 .jobsTitle {
   font-size: 4em;
   font-weight: 700;
-  font-style: italic;
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
 .jobContainer {
   margin-top: 5%;
-  width: 75%;
-  /* min-height: 100vh; */
 }
 
 .v-timeline-item__dot .v-timeline-item__inner-dot {
@@ -125,5 +122,6 @@ export default {
 
 .superDenseJobName {
   font-weight: 600;
+  white-space: pre-line;
 }
 </style>
