@@ -12,7 +12,7 @@ export default {
       jobs: [
       {
         time: '2015-2018',
-        name: "Master of Science Physics - 1.4",
+        name: "Master of Science Physics | 1.4",
         employer: {
           link: "https://www.physik.uni-heidelberg.de/",
           name: "Universität Heidelberg"
@@ -23,7 +23,7 @@ export default {
       },
       {
         time: "2011-2015",
-        name: "Bachelor of Science Physics - 2.2",
+        name: "Bachelor of Science Physics | 2.2",
         employer: {
           link: "https://www.physik.uni-heidelberg.de/",
           name: "Universität Heidelberg"
@@ -42,7 +42,7 @@ export default {
       },
       {
         time: "2000-2009",
-        name: "Gymnasium, Abitur -1.9",
+        name: "Abitur | 1.9",
         emplyer: "Germany",
         description: [
             "Intensified courses: Mathematics and English"

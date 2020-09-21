@@ -82,3 +82,6 @@ export default {
 .toolbarContainer {
 }
 </style>
+
+<style scoped>
+</style>

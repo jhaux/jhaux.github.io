@@ -43,7 +43,12 @@ export default {
     }
   },
   mounted: function () {
-    MultiDensityChart('timestamp_av.csv', '#' + this.name + 'multiChart', this.width, this.height)
+    MultiDensityChart(
+      'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/timestamp_av.csv',
+      '#' + this.name + 'multiChart',
+      this.width,
+      this.height
+    )
   },
   methods: {
     onHelpClick: function () {

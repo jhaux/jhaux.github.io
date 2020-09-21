@@ -40,6 +40,7 @@
         v-model=selectedSkills
         />
 
+      <div class=interactivePlots>
       <Webster
         name=bottom
         v-model=selectedAxis
@@ -48,7 +49,11 @@
         matches
         />
 
-      <Blobby name=bottom />
+      <Blobby
+        name=bottom
+        id=blob
+      />
+      </div>
 
     </v-main>
   </v-app>
@@ -113,5 +118,33 @@ export default {
 <style>
 #app {
   background: unset;
+}
+
+.interactivePlots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "web blob";
+}
+
+@media (max-width: 900px) {
+  .interactivePlots {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr qfr;
+    grid-template-areas:
+        "web"
+        "blob";
+  }
+}
+
+#data2 {
+  grid-area: "web";
+  max-height: 100%;
+}
+
+#blob {
+  grid-area: "blob";
+  max-height: 100%;
 }
 </style>
