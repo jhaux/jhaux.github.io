@@ -1,5 +1,5 @@
 <template>
-    <div class=firstLookContainer>
+    <v-container class=firstLookContainer>
         <v-overlay v-if=showHelp>
           <v-card light class=help>
             <v-card-title>
@@ -87,7 +87,7 @@
             git.
           </v-card-text>
       </v-card>
-    </div>
+    </v-container>
 </template>
 
 <script>
@@ -155,7 +155,6 @@ export default {
 }
 
 .firstLookContainer {
-  max-height: 90vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 80% minmax(auto 20%);
@@ -173,7 +172,6 @@ export default {
 
 @media (max-width: 1200px) {
   .firstLookContainer {
-  max-height: 180vh;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto 1fr auto;
   grid-template-areas:
