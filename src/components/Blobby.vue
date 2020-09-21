@@ -1,30 +1,6 @@
 und<template>
   <v-container class=multiChartContainer>
-    <v-toolbar>
-      <v-toolbar-title>
-        Experience
-      </v-toolbar-title>
-      <v-spacer />
-        <v-btn icon @click=onHelpClick>
-          <v-icon>
-            mdi-help-circle-outline
-          </v-icon>
-        </v-btn>
-    </v-toolbar>
-
-    <v-overlay v-if=showHelp>
-      Help Text
-      <v-btn icon @click="showHelp=false">
-        <v-icon>
-          mdi-close
-        </v-icon>
-      </v-btn>
-    </v-overlay>
-
     <div :id="name + 'multiChart'"> </div>
-    <v-row>
-        Content
-    </v-row>
   </v-container>
 </template>
 
@@ -50,11 +26,6 @@ export default {
       this.height
     )
   },
-  methods: {
-    onHelpClick: function () {
-      this.showHelp = true
-    }
-  }
 }
 </script>
 
