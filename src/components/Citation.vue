@@ -1,15 +1,15 @@
 <template>
   <div class="citationContainer">
-      <div class=spacer></div>
-    <div class="content">
-      <div class=citation>
-    <slot>Citation</slot>
+    <div class=spacer></div>
+      <div class="content">
+        <div class=citation>
+          <slot>Citation</slot>
+        </div>
+        <div class="source">
+          - <slot name=source>Citation Source</slot>
+        </div>
       </div>
-    <div class="source">
-    - <slot name=source>Citation Source</slot>
-    </div>
-    </div>
-      <div class=spacer></div>
+    <div class=spacer></div>
   </div>
 </template>
 
@@ -38,14 +38,11 @@ export default {
 .citation {
   font-size: 32px;
   font-weight: 300;
-  font-style: italic;
 }
 
 .source {
   font-size: 18px;
   font-weight: 300;
-  font-style: italic;
-  max-width: 60%;
 }
 
 @media (max-width: 900px) {
