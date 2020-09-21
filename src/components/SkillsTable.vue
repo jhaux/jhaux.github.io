@@ -1,70 +1,112 @@
 <template>
   <v-container>
-    <div class=jobsTitle>
+    <div class=sectionTitle>
       Skills
     </div>
-  <v-data-table
-    v-model=selected
-    disable-pagination
-    fixed-header
-    group-by=category
-    :headers=headers
-    hide-default-footer
-    :items=items
-    item-key=skill
-    multi-sort
-    show-select
-    sort-by="[catIndex, subCatIndex, name]"
-    >
 
-    <template v-slot:item.level="{ item }">
-      <v-rating
-        :value="item.level"
-        length=6
-        empty-icon="mdi-checkbox-blank-outline"
-        full-icon="mdi-checkbox-blank"
-        dense
-        readonly
-        >
-        <template v-slot:item="props">
-            <v-icon
-              :class="props.isFilled ? 'filledItem' : 'emptyItem'"
-              @click="props.click"
-            >
-              {{ props.isFilled ? 'mdi-checkbox-blank' : 'mdi-checkbox-blank-outline' }}
-            </v-icon>
-        </template>
-      </v-rating>
-    </template>
+    <p>
+    How well do I match your profile?
+    Select the skills you are interested in
 
-    <template v-slot:item.required="{ item }">
-      <v-rating
-        length=6
-        empty-icon="mdi-checkbox-blank-outline"
-        full-icon="mdi-checkbox-blank"
-        dense
-        v-model=item.required
-        >
-        <template v-slot:item="props">
-            <v-icon
-              :class="props.isFilled ? 'filledItemReq' : 'emptyItemReq'"
-              @click="props.click"
-            >
-              {{ props.isFilled ? 'mdi-checkbox-blank' : 'mdi-checkbox-blank-outline' }}
-            </v-icon>
-        </template>
-      </v-rating>
-    </template>
+    <span v-if="superDense">using the checkbox in the top right of each table
+      row</span>
+    
+    and change the "Required" values to find out. 
 
-    <template v-slot:item.experience="{ item }">
-        {{ getExperience(item.experience) }}
-    </template>
-  </v-data-table>
+    The scale ranges from
+    <v-rating
+      small
+      empty-icon=mdi-checkbox-blank-outline 
+      full-icon=mdi-checkbox-blank
+      dense
+      length=6
+      readonly
+      :value=1
+      class=inlineThingy
+      :color=primary
+      :background-color=primary
+    />
+    i.e beginner to 
+    <v-rating
+      small
+      empty-icon=mdi-checkbox-blank-outline 
+      full-icon=mdi-checkbox-blank
+      dense
+      length=6
+      readonly
+      :value=6
+      class=inlineThingy
+      :color=primary
+    />
+    i.e. expert.
+    </p>
+
+    <v-data-table
+      v-model=selected
+      ref=expandableTable
+      disable-pagination
+      fixed-header
+      group-by=category
+      :headers=headers
+      hide-default-footer
+      :items=items
+      item-key=skill
+      multi-sort
+      show-select
+      sort-by="[catIndex, subCatIndex, name]"
+      >
+
+      <template v-slot:item.level="{ item }">
+        <v-rating
+          :value="item.level"
+          length=6
+          empty-icon="mdi-checkbox-blank-outline"
+          full-icon="mdi-checkbox-blank"
+          dense
+          readonly
+          >
+          <template v-slot:item="props">
+              <v-icon
+                :class="props.isFilled ? 'filledItem' : 'emptyItem'"
+                @click="props.click"
+              >
+                {{ props.isFilled ? 'mdi-checkbox-blank' : 'mdi-checkbox-blank-outline' }}
+              </v-icon>
+          </template>
+        </v-rating>
+      </template>
+
+      <template v-slot:item.required="{ item }">
+        <v-rating
+          length=6
+          empty-icon="mdi-checkbox-blank-outline"
+          full-icon="mdi-checkbox-blank"
+          dense
+          v-model=item.required
+          >
+          <template v-slot:item="props">
+              <v-icon
+                :class="props.isFilled ? 'filledItemReq' : 'emptyItemReq'"
+                @click="props.click"
+              >
+                {{ props.isFilled ? 'mdi-checkbox-blank' : 'mdi-checkbox-blank-outline' }}
+              </v-icon>
+          </template>
+        </v-rating>
+      </template>
+
+      <template v-slot:item.experience="{ item }">
+          {{ getExperience(item.experience) }}
+      </template>
+    </v-data-table>
   </v-container>
 </template>
 
 <script>
+import Colors from '@/mixins/Colors.js'
+
 export default {
+  mixins: [Colors],
   props: {
     value: {type: Array, default: () => [] }
   },
@@ -135,7 +177,9 @@ export default {
       }
     }
 
-    this.$emit('rendered')
+    if (this.superDense) {
+      this.$refs.expandableTable.collapseAll()
+    }
   },
   methods: {
     getExperience: function(date) {
@@ -147,6 +191,12 @@ export default {
       } else {
         return "< 1"
       }
+    }
+  },
+  computed: {
+    superDense: function () {
+      var x = window.matchMedia("(max-width: 550px)")
+      return x.matches
     }
   },
   watch: {
@@ -193,6 +243,10 @@ export default {
     {
       position: unset;
     }
+}
+
+.inlineThingy {
+  display: inline;
 }
 
 </style>

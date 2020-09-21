@@ -34,7 +34,7 @@ export default {
             'Head and coordinator of helper teams of 12 - 50 persons',
             `Job of each team is to ensure the safety of 2000 - 6000 children
             per event for several events over the course of one day`,
-            `Klasse! Wir singen % is an annual cultural event, occuring all
+            `Klasse! Wir singen is an annual cultural event, occuring all
             over Germany`
             ]
         },

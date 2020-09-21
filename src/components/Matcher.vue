@@ -10,12 +10,7 @@
       <v-sheet width="50%" height="50%" :color=secondary class=matcherSeperator /> 
       <div class="matcher" >
         <p>
-        How well do I match your profile?
-        Change the "Required" values above to find out. 
-        The scale goes from 1: Beginner to 6: Senior Expert.
-        </p>
-        <p>
-        Currently I am matching your profile with
+        Currently I am matching your profile by
         </p>
         <div class=matchValue v-html=matchRender></div>
         <div class=matchText> {{ matchText }} </div>
@@ -51,19 +46,25 @@ export default {
       let matchValues = []
       let diff
       let val
-      for (var i = 0; i < player1.length; i++) {
+      for (var i = 0; i < N; i++) {
         diff = player2[i].value - player1[i].value
+        diff /= 6
 
         val = 1 - diff
         val = this.cap && diff < 0 ? 1 : val
         matchValues.push( val )
       }
-      console.log('mv', matchValues)
 
       const matchValue = matchValues.reduce((a, b) => a + b) / N
-      const matchVariance = matchValues.reduce(
-        (a, b) => a + Math.pow((b - matchValue), 2)
-      ) / N
+      let matchVariance = 0
+      let dist
+      if ( N > 1 ) {
+        for (i=0; i < N; i++) {
+          dist = Math.pow(matchValues[i] - matchValue, 2)
+          matchVariance += dist
+        }
+        matchVariance = Math.sqrt( matchVariance / (N-1) )
+      }
 
       const returnValue = Math.round(matchValue * 1000) / 10
       const returnVariance = Math.round(matchVariance * 1000) / 10
@@ -85,7 +86,7 @@ export default {
       } else if (this.matchValue[0] === '?') {
         matchText = "Choose some of my skills and set your requirements!"
       } else {
-        matchText = "Seems I can learn a lot at your company! Let's talk trainings!"
+        matchText = "Seems I can learn a lot at your company!"
       }
       return matchText
     }

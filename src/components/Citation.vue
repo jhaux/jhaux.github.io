@@ -42,7 +42,7 @@ export default {
 }
 
 .source {
-  font-size: 11px;
+  font-size: 18px;
   font-weight: 300;
   font-style: italic;
   max-width: 60%;
@@ -54,7 +54,7 @@ export default {
     }
     
     .source {
-      font-size: 9px;
+      font-size: 10px;
     }
 }
 </style>

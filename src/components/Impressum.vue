@@ -2,11 +2,9 @@
   <div class=impressumContainer>
     <CTA />
     <div class=impressumTitle >
-      <v-icon large :color=primary >mdi-chevron-right</v-icon>
       <div>
       Johannes Haux
       </div>
-      <v-icon large :color=primary >mdi-chevron-left</v-icon>
     </div>
     <a class=impressumText href="mailto:haux.johannes+hire@gmail.com" >
       haux.johannes+hire@gmail.com

@@ -1,6 +1,6 @@
 <template>
   <v-container class=jobContainer>
-    <div class="jobsTitle sectionTitle" > {{ title }}</div>
+    <div class="sectionTitle" > {{ title }}</div>
     <v-list v-if=superDense>
       <v-list-item
         v-for="(item, i) of items"
@@ -96,13 +96,6 @@ export default {
 </script>
 
 <style>
-.jobsTitle {
-  font-size: 4em;
-  font-weight: 700;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
 .jobContainer {
   margin-top: 5%;
 }

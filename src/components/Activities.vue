@@ -12,7 +12,7 @@ export default {
       jobs: [
         {
           time: 'since 2018',
-          name: "Codeveloper of an open source framework",
+          name: "Co-developer of an open source framework",
           employer: {
             link: "https://github.com/pesser/edflow",
             name: "edflow"

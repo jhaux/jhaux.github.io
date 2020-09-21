@@ -28,7 +28,7 @@
         </v-overlay>
 
       <v-container class=webster>
-        <div class="sectionTitle jobsTitle " >
+        <div class="sectionTitle" >
           What I know
         </div>
           <Webster
@@ -54,14 +54,14 @@
           </v-btn>
         </v-card-title>
           <v-card-text>
-            My self-estimated skill level of some of my skills. Find a
-            more extensive list below, which you can customize and compare with
-            you needs.
+            My self-estimated level of some of my skills. Find a
+            more extensive list below, which you can customize and compare to
+            your needs.
           </v-card-text>
       </v-card>
 
       <v-container class=blobby >
-        <div class="sectionTitle jobsTitle" >
+        <div class="sectionTitle" >
           What I do
         </div>
           <Blobby
@@ -82,9 +82,9 @@
           </v-btn>
         </v-card-title>
           <v-card-text>
-            To give you an idea of what my actual coding experience looks like I
-            present the number of lines of code I have ever written while using
-            git.
+            To give you an idea of what my actual coding experience looks like,
+            I present the number of lines of code I have ever written while
+            using git.
           </v-card-text>
       </v-card>
     </v-container>
