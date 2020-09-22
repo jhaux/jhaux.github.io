@@ -69,6 +69,7 @@ import Impressum from './components/Impressum.vue'
 
 export default {
   name: 'app',
+  title: 'Johannes Haux | For Hire!',
   components: {
     Jobs,
     Education,
