@@ -16,7 +16,6 @@ export default {
 
 <style>
 .titleContainer {
-  /* position: relative;*/
   z-index: -1;
   background-image: linear-gradient(
         rgba(var(--secondary-color), 0.0) 0%,
@@ -28,24 +27,29 @@ export default {
   background-size: cover;
 
   text-align: center;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1.25fr 0.75fr;
 }
 
 .titleHeader, .titleSubHeader {
   position: relative;
   z-index: 100;
   color: var(--primary);
-  top: 45%;
 }
 
 .titleHeader {
   font-size: 6rem;
   font-weight: 700;
+  align-self: flex-end;
 }
 
 .titleSubHeader {
   font-size: 1.5rem;
   font-weight: 400;
-  padding-top: 3%
+
+  align-self: flex-start;
 }
 
 @media (max-width: 900px) {

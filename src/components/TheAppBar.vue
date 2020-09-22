@@ -35,13 +35,13 @@ export default {
     return {
       navItems: [
         {name: "Home",            link: "#home",        importance: 1, icon: "mdi-home"},
-        {name: "Data",            link: "#data1",       importance: 1, icon: "mdi-chart-scatter-plot"},
+        {name: "Data",            link: "#data1",       importance: 1, icon: "mdi-chart-timeline-variant"},
         {name: "Work Experience", link: "#work",        importance: 0, icon: "mdi-briefcase"},
         {name: "Education",       link: "#education",   importance: 0, icon: "mdi-school"},
         {name: "Publications",    link: "#publication", importance: 1, icon: "mdi-file-document"},
         {name: "Activities",      link: "#activites",   importance: 0, icon: "mdi-nature-people"},
-        {name: "Skills",          link: "#skillztable", importance: 1, icon: "mdi-head-lightbulb"},
-        {name: "Data",            link: "#data2",       importance: 0, icon: "mdi-chart-timeline-variant"},
+        {name: "Skills",          link: "#skillztable", importance: 1, icon: "mdi-table-large"},
+        {name: "Data",            link: "#data2",       importance: 0, icon: "mdi-radar"},
       ],
       collapsed_: true,
       scrollPos: 0

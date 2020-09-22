@@ -86,6 +86,10 @@ export default {
   grid-auto-flow: column;
   justify-content: space-evenly;
 }
+
+.IconBar > button {
+  margin: 0 5px;
+}
 </style>
 
 <style>
