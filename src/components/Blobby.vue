@@ -18,7 +18,7 @@ export default {
   },
   mounted: function () {
     MultiDensityChart(
-      'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/timestamp_av.csv',
+      'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/files/timestamp_av.csv',
       '#' + this.name + 'multiChart',
       this.width,
       this.height

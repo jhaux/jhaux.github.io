@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && rm -rf docs && mv dist docs && git add docs && git commit -m ':fire: Push latest build' && git push",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
