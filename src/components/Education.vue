@@ -35,7 +35,7 @@ export default {
       {
         time: "2013",
         name: "Erasmus Internship",
-        employer: {linke: "http://www.iaa.es/", name: "IAA-CSIC Granada"},
+        employer: {link: "http://www.iaa.es/", name: "IAA-CSIC Granada"},
         description: [
           "Analysis of asteroid spectra searching for traces of water"
         ]

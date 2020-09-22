@@ -35,7 +35,7 @@ export default {
           time: "2008-2013",
           name: "Workshop Organization",
           employer: {
-            link: "http://www.vega-astro.de/sommerlager",
+            link: "http://www.vega-astro.de",
             name: "Astronomics Summer School"
           },
           description: [

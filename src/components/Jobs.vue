@@ -28,7 +28,7 @@ export default {
           time: "since 2011",
           name: "Member of Team \"Klasse! Wir singen\"",
           employer: {
-            link: "www.klasse-wir-singen.de", name: "Klasse! Wir singen"
+            link: "http://www.klasse-wir-singen.de", name: "Klasse! Wir singen"
           },
           description: [
             'Head and coordinator of helper teams of 12 - 50 persons',
