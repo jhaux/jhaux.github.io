@@ -64,13 +64,31 @@
           </v-card-subtitle>
           <v-card-text class=list__body>
             <v-list dense>
-              <v-list-item v-for="(item, i) of item.description" :key="i">
-                {{item}}
+              <v-list-item v-for="(ditem, i) of item.description" :key="i">
+                {{ditem}}
               </v-list-item>
             </v-list>
           </v-card-text>
         </v-card>
-        <div slot=opposite >{{ item.time }}</div>
+
+        <div slot=opposite class=oppositeStuff>
+          <v-img
+            v-if=item.image
+            :src="item.image"
+            max-height=175px
+            :max-width="175 / 1.618 + 'px'"
+            aspect=1
+            contain
+            class=oppositeImage
+            @click="alert('click')"
+          />
+
+          <span class=oppositTime>
+            {{ item.time }}
+          </span>
+
+        </div>
+
       </v-timeline-item>
     </v-timeline>
   </v-container>
@@ -116,5 +134,20 @@ export default {
 .superDenseJobName {
   font-weight: 600;
   white-space: pre-line;
+}
+
+.oppositeStuff {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.oppositeImage {
+  border: 1px solid var(--secondary);
+}
+
+.oppositTime {
+  margin-left: 5%;
 }
 </style>
