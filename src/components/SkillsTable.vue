@@ -98,6 +98,16 @@
       <template v-slot:item.experience="{ item }">
           {{ getExperience(item.experience) }}
       </template>
+
+      <template v-slot:group.header="{ group, headers, toggle, isOpen }">
+        <td :colspan="headers.length">
+            <v-btn @click="toggle" small icon :ref="'group-' + group">
+                <v-icon v-if="isOpen">mdi-chevron-up</v-icon>
+                <v-icon v-else>mdi-chevron-down</v-icon>
+            </v-btn>
+            {{ group }}
+        </td>
+      </template>
     </v-data-table>
   </v-container>
 </template>
@@ -177,8 +187,10 @@ export default {
       }
     }
 
+    console.log(this.$refs.expandableTable)
+
     if (this.superDense) {
-      this.$refs.expandableTable.collapseAll()
+      this.collapseAllGroups()
     }
   },
   methods: {
@@ -191,11 +203,18 @@ export default {
       } else {
         return "< 1"
       }
-    }
+    },
+    collapseAllGroups: function() {
+      Object.keys(this.$refs).forEach(k => {
+        if (k.startsWith('group-') ) {
+          this.$refs[k].$el.click()
+        }
+      })
+    },
   },
   computed: {
     superDense: function () {
-      var x = window.matchMedia("(max-width: 550px)")
+      var x = window.matchMedia("(max-width: 700px)")
       return x.matches
     }
   },
