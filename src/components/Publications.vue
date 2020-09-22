@@ -19,7 +19,7 @@ export default {
           },
           employer: {link: "https://arxiv.org/pdf/1910.10223", name: "[pdf]"},
           description: [],
-          image: 'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/page-1-of-1910-10233.png'
+          image: 'https://raw.githubusercontent.com/jhaux/jhaux.github.io/master/public/page-1-of-1910-10233.png'
         },
         {
           time: '2018',
@@ -32,7 +32,7 @@ export default {
             name: "[pdf]"
           },
           description: [],
-          image: 'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/page-1-of-rerender.pdf.png'
+          image: 'https://raw.githubusercontent.com/jhaux/jhaux.github.io/master/public/page-1-of-rerender.pdf.png'
         },
         {
           time: "2018",
@@ -46,7 +46,7 @@ export default {
             name: "[pdf]"
           },
           description: [],
-          image: 'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/page-44-of-thesis.png'
+          image: 'https://raw.githubusercontent.com/jhaux/jhaux.github.io/master/public/page-44-of-thesis.png'
         },
         {
           time: "2015",
@@ -59,7 +59,7 @@ export default {
             name: "[pdf]"
           },
           description: [],
-          image: 'https://media.githubusercontent.com/media/jhaux/jhaux.github.io/master/public/page-18-of-15-haux-johannes.png'
+          image: 'https://raw.githubusercontent.com/jhaux/jhaux.github.io/master/public/page-18-of-15-haux-johannes.png'
         }
         ]
     }
