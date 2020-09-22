@@ -30,15 +30,7 @@ export default {
    //////////////////////// Set-Up //////////////////////////////
    //////////////////////////////////////////////////////////////
 
-   const elementObj = document.querySelector('#' + this.name + 'radarChart')
-
-   console.log('r wh', elementObj.offsetWidth, elementObj.offsetHeight)
-   // const baseWidth = Math.min(window.innerWidth, Math.max(700, elementObj.offsetWidth))
-   // const baseHeigth = Math.min(window.innerHeight, Math.max(700, elementObj.offsetHeight))
-
    var margin = {top: 100, right: 100, bottom: 100, left: 100}
-   // width = baseWidth - margin.left - margin.right,
-   // height = baseHeigth- margin.top - margin.bottom
 
    //////////////////////////////////////////////////////////////
    //////////////////// Draw the Chart //////////////////////////
@@ -64,7 +56,6 @@ export default {
       handler() {
         if (this.value) {
             const value = this.matches ? this.value : [ this.value[0] ]
-            console.log(this.name, this.value)
             RadarChart("#" + this.name + "radarChart", value, this.radarChartOptions);
         } 
         this.$emit('input', this.value)

@@ -187,8 +187,6 @@ export default {
       }
     }
 
-    console.log(this.$refs.expandableTable)
-
     if (this.superDense) {
       this.collapseAllGroups()
     }

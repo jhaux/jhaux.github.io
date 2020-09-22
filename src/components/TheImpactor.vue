@@ -18,7 +18,6 @@ export default {
     const aspect = w / h
 
     const base_string = style.getPropertyValue('--white-color')
-    console.log(base_string)
     const base = base_string.split(',').map(c => parseInt(c) / 100) 
     const baseColor = new THREE.Color().setHSL(...base)
 
@@ -30,8 +29,6 @@ export default {
     const primary = primary_string.split(',').map(c => parseInt(c) / 255)
     const primaryColor = new THREE.Color(...primary)
 
-    console.log(baseColor, grayColor, primaryColor)
-    
     var renderer = new THREE.WebGLRenderer({alpha: true});
     renderer.setSize(w, h);
     renderer.shadowMap.enabled = true
@@ -82,7 +79,6 @@ export default {
     const iterCubes = []
     const maxR = Math.pow((N*2 + 1) / 2, 2)
     const redMaterial = new THREE.MeshPhongMaterial( { color: primaryColor } );
-    console.log(redMaterial)
     let material
     for (var i = -N; i < N + 1; i++) {
         for (var j = -N; j < N+1; j++) {
