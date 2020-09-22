@@ -60,4 +60,22 @@ export default {
   max-height: 100%;
   width: auto;
 }
+
+@media (max-width: 1904px) {
+  .axis {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 1264px) {
+  .axis {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .axis {
+    font-size: 20px !important;
+  }
+}
 </style>

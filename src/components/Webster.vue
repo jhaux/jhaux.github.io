@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style >
+
 .axisLabel {
   font-size: 14px !important;
 }
@@ -90,6 +91,36 @@ export default {
 .radarChart > svg {
   max-height: 100%;
   width: auto;
+}
+
+@media (max-width: 1904px) {
+  .axisLabel {
+    font-size: 20px !important;
+  }
+
+  .legend {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 1264px) {
+  .axisLabel {
+    font-size: 14px !important;
+  }
+
+  .legend {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .axisLabel {
+    font-size: 20px !important;
+  }
+
+  .legend {
+    font-size: 20px !important;
+  }
 }
 
 </style>

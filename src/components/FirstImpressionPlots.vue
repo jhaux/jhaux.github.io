@@ -170,7 +170,7 @@ export default {
   max-width: 50%;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1264px) {
   .firstLookContainer {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto 1fr auto;
