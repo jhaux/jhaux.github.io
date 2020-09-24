@@ -56,7 +56,7 @@ export default {
       window.open('http://www.github.com/jhaux')
     },
     onPdfCvClick() {
-      window.open('/cv_johannes.pdf')
+      window.open('https://github.com/jhaux/jhaux.github.io/raw/master/files/cv_johannes.pdf')
     }
   }
 }
